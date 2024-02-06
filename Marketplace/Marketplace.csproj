@@ -8,12 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Customers\" />
-    <Folder Include="Features\Orders\" />
-    <Folder Include="Features\Products\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FastEndpoints" Version="5.22.0" />
     <PackageReference Include="FastEndpoints.Swagger" Version="5.22.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />

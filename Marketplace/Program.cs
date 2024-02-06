@@ -1,3 +1,5 @@
+global using FastEndpoints;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();

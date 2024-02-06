@@ -8,14 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Users\Create\" />
-    <Folder Include="Features\Users\Delete\" />
-    <Folder Include="Features\Users\GetUser\" />
-    <Folder Include="Features\Users\GetUsersList\" />
-    <Folder Include="Features\Users\Update\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FastEndpoints" Version="5.22.0" />
     <PackageReference Include="FastEndpoints.Swagger" Version="5.22.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />
