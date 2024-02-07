@@ -8,6 +8,7 @@ public class User
 {
     private static readonly IPasswordManager _passwordManager = new PasswordManager();
 
+    private static readonly List<UserRole> _roles = new ();
     private User(){ }
 
     [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -18,11 +19,10 @@ public class User
     public DateTime? UpdatedAt { get; } = null;
     public  string Phone { get; private set; } = string.Empty;
     public  string Password { get; private set; } = string.Empty;
+    public IReadOnlyCollection<UserRole> Roles => _roles;
 
-    public static User CreateAsync(string? fullname,string? email,string phone,string password,CancellationToken ct)
+    public static User CreateAsync(string? fullname,string? email,string phone,string password, ushort[] roles)
     {
-        if (ct.IsCancellationRequested) return new User();
-
         var user = new User
         {
             Email = email,
@@ -31,6 +31,13 @@ public class User
             CreatedAt = DateTime.UtcNow,
             Password = _passwordManager.Hash(password)
         };
+
+        if (roles.Length <= 0) return user;
+
+        foreach (var roleId in roles)
+        {
+            _roles.Add(UserRole.Create(roleId,user.Id)); 
+        }
 
         return user;
     }

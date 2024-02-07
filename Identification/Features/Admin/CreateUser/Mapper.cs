@@ -6,7 +6,7 @@ public sealed class Mapper : Mapper<CreateUserRequest, UserResponse, User>
 {
     public override Task<User> ToEntityAsync(CreateUserRequest r, CancellationToken ct = default)
     {
-        var user = User.CreateAsync(fullname: r.Fullname, email: r.Email, phone: r.Phone, password: r.Password, ct: ct);
+        var user = User.CreateAsync(fullname: r.Fullname, email: r.Email, phone: r.Phone, password: r.Password,roles:r.Roles);
 
         return Task.FromResult(user);
     }

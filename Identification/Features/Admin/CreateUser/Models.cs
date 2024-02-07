@@ -2,7 +2,7 @@
 
 namespace Identification.Features.Admin.CreateUser;
 
-public record CreateUserRequest(string? Fullname, string? Email, string Phone, string Password);
+public record CreateUserRequest(string? Fullname, string? Email, string Phone, string Password,ushort[] Roles);
 
 public sealed class Validator : Validator<CreateUserRequest>
 {
